@@ -39,8 +39,6 @@ Chrome 扩展（Manifest V3）：抓取 B 站视频字幕，调用任意 OpenAI 
 | 温度 | AI 采样温度（0–2） |
 | 完成后自动打开 | 完成后在新标签页打开总结 |
 
-任意 OpenAI Chat Completions 兼容服务均可：DeepSeek / Kimi / Qwen / GLM / OpenAI / 本地 Ollama —— 只需修改接口地址和模型。中国大陆网络下国内服务直连可用，OpenAI 等需代理。
-
 ## 开发
 
 ```bash

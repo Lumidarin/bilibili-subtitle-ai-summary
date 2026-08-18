@@ -39,8 +39,6 @@ A Chrome extension (Manifest V3) that grabs Bilibili video subtitles and generat
 | Temperature | AI sampling temperature (0–2) |
 | Auto Open | Open the summary in a new tab when finished |
 
-Any OpenAI Chat Completions compatible service works: DeepSeek / Kimi / Qwen / GLM / OpenAI / local Ollama — just change Base URL + Model. In mainland China, domestic services work directly; OpenAI etc. need a proxy.
-
 ## Development
 
 ```bash
