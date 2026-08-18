@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 330px;
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #1e1f24;
+      color: #e8e8ec;
+      padding: 14px;
+    }
+    .header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .logo {
+      width: 36px; height: 36px; border-radius: 50%; flex: none;
+      background: linear-gradient(135deg, #fb7299, #f5746c);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; color: #fff;
+    }
+    h1 { font-size: 14px; font-weight: 600; }
+    .video-title {
+      font-size: 11px; color: #9a9aa5; margin-top: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px;
+    }
+    .run-btn {
+      width: 100%; padding: 11px 0; border: none; border-radius: 8px; cursor: pointer;
+      background: linear-gradient(135deg, #fb7299, #f5746c); color: #fff;
+      font-size: 14px; font-weight: 600; letter-spacing: 1px;
+      transition: opacity .15s;
+    }
+    .run-btn:disabled { opacity: .45; cursor: not-allowed; }
+    .status {
+      margin-top: 8px; min-height: 32px; font-size: 12px; line-height: 1.5;
+      color: #9a9aa5; white-space: pre-wrap; word-break: break-all;
+    }
+    .status.error { color: #ff7b72; }
+    .status.ok { color: #7ee787; }
+    .switch { position: relative; display: inline-block; width: 36px; height: 20px; flex: none; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0; border-radius: 20px; background: #3a3b42;
+      cursor: pointer; transition: background .15s;
+    }
+    .slider::before {
+      content: ''; position: absolute; width: 14px; height: 14px; border-radius: 50%;
+      left: 3px; top: 3px; background: #fff; transition: transform .15s;
+    }
+    .switch input:checked + .slider { background: linear-gradient(135deg, #fb7299, #f5746c); }
+    .switch input:checked + .slider::before { transform: translateX(16px); }
+    .footer {
+      margin-top: 8px; padding-top: 8px; border-top: 1px solid #2e2f36;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ball-toggle { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #c9c9d1; }
+    .footer .links { display: flex; gap: 14px; }
+    .footer a { color: #79b8ff; font-size: 12px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">S</div>
+    <div>
+      <h1>B站 AI 字幕总结</h1>
+      <div id="videoTitle" class="video-title">—</div>
+    </div>
+  </div>
+
+  <button id="runBtn" class="run-btn" disabled>一键生成 AI 总结</button>
+  <div id="status" class="status"></div>
+
+  <div class="footer">
+    <div class="ball-toggle">
+      <span>页面悬浮球</span>
+      <label class="switch">
+        <input type="checkbox" id="ballToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="links">
+      <a id="historyLink" href="#">历史记录</a>
+      <a id="settingsLink" href="#">设置</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

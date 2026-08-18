@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>历史记录 - B站 AI 总结</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f6f7f9; color: #24292f;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: #1e1f24; color: #e8e8ec;
+      padding: 12px 20px; display: flex; align-items: center; gap: 16px;
+    }
+    .topbar h1 { font-size: 15px; font-weight: 600; white-space: nowrap; }
+    .topbar input {
+      flex: 1; max-width: 420px; padding: 8px 12px; border: 1px solid #3a3b42;
+      border-radius: 8px; background: #2a2b31; color: #e8e8ec; font-size: 13px;
+      outline: none;
+    }
+    .topbar input:focus { border-color: #fb7299; }
+    .count { font-size: 12px; color: #9a9aa5; white-space: nowrap; }
+    .list { max-width: 860px; margin: 24px auto 60px; padding: 0 16px; }
+    .row {
+      background: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08); cursor: pointer;
+      display: flex; align-items: flex-start; gap: 12px; transition: box-shadow .12s;
+    }
+    .row:hover { box-shadow: 0 3px 10px rgba(0,0,0,.14); }
+    .row-main { flex: 1; min-width: 0; }
+    .title { font-size: 14px; font-weight: 600; color: #24292f;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .meta { font-size: 11px; color: #6e7781; margin-top: 3px; }
+    .snip { font-size: 12px; color: #57606a; margin-top: 6px; line-height: 1.5;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .del {
+      flex: none; border: none; background: transparent; cursor: pointer;
+      font-size: 14px; opacity: .5; padding: 4px; border-radius: 6px;
+    }
+    .del:hover { opacity: 1; background: #f0f1f3; }
+    .empty { max-width: 600px; margin: 80px auto; text-align: center; color: #6e7781; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>📚 历史记录</h1>
+    <input id="search" type="search" placeholder="搜索标题或内容…" autocomplete="off" />
+    <span id="count" class="count"></span>
+  </div>
+  <div id="list" class="list"></div>
+  <script src="db.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

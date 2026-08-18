@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "B站 AI 字幕总结",
+  "version": "0.1.0",
+  "description": "一键抓取 B 站视频字幕，调用 AI 生成「核心观点 + 带时间戳大纲」的 Markdown 总结，字幕全文自动附加在文末。",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "downloads", "tabs", "scripting", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "B站 AI 字幕总结",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
