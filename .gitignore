@@ -1,0 +1,20 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Agent instructions (personal, machine-specific)
+AGENTS.md
+
+# Release planning notes (private)
+STORE_RELEASE.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.log
